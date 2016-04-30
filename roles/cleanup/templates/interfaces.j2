@@ -1,0 +1,14 @@
+{% set intvars = interfaces[ansible_hostname] %}
+
+#Configured by Ansible
+
+auto eth0
+iface eth0 inet dhcp
+
+{% for interface in intvars.keys() -%}
+{% if interface == "lo" -%}
+auto lo
+iface lo inet loopback
+  address {{intvars['lo'].ipv4}}/32
+{% endif -%}
+{% endfor %}

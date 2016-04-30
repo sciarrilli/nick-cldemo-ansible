@@ -1,0 +1,32 @@
+{% set intvars = interfaces[ansible_hostname] -%}
+{% set ospfvars = ospf[ansible_hostname] -%}
+!
+!
+!
+{% for port in ospfvars.routedports -%}
+{% if port == "lo" -%}
+interface {{ port }}
+ip ospf area 0.0.0.0
+{% endif %}
+{% endfor %}
+!
+{% for port in ospfvars.routedports %}
+interface {{ port }}
+ip ospf area 0.0.0.0
+ip ospf network point-to-point
+{% endfor %}
+!
+!
+!
+router ospf
+    ospf router-id {{ intvars['lo'].ipv4 }}
+    log-adjacency-changes detail
+    auto-cost reference-bandwidth 100000
+    timers lsa min-arrival 50
+    timers throttle spf 5 100 500
+    passive-interface default
+{% for port in ospfvars.routedports %}
+    no passive-interface {{ port }}
+{% endfor %}
+!
+!

@@ -1,0 +1,53 @@
+{% set intvars = interfaces[ansible_hostname] %}
+{% set bridgevars = bridges[ansible_hostname] -%}
+{% set svivars = SVIs[ansible_hostname] -%}
+
+# Configured by Ansible
+
+auto eth0
+iface eth0 inet dhcp
+
+{% for interface in intvars.keys() -%}
+auto {{interface}}
+{% if interface == "lo" -%}
+iface lo inet loopback
+  address {{intvars[interface].ipv4}}/32
+{% else %}
+iface {{interface}}
+{% endif -%}
+{% if intvars[interface].alias is defined %}
+  alias {{ intvars[interface].alias }}
+{% endif %}
+{% if intvars[interface].mtu is defined %}
+  mtu {{ intvars[interface].mtu }}
+{% endif %}
+{% if intvars[interface].accessvlan is defined %}
+  bridge-access {{intvars[interface].accessvlan}}
+{% endif %}
+
+{% endfor %}
+
+{% if ansible_hostname in bridges  %}
+{% for bridge in bridgevars.keys() -%}
+auto {{bridgevars[bridge].name}}
+iface {{bridgevars[bridge].name}}
+  bridge-ports {{bridgevars[bridge].members|join(' ')}}
+  bridge-stp on
+{% if bridgevars[bridge].vlanaware is defined %}
+  bridge-vlan-aware yes
+  bridge-vids {{bridgevars[bridge].vids|join(' ')}}
+  bridge-pvid 1
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if ansible_hostname in SVIs %}
+{% for svi in svivars.keys() %}
+auto {{svivars[svi].name}}
+iface {{svivars[svi].name}}
+  address {{svivars[svi].ip}}
+{% if svivars[svi].virtual is defined %}
+  address-virtual {{svivars[svi].mac}} {{svivars[svi].virtual}}
+{% endif %}
+{% endfor %}
+{% endif %}

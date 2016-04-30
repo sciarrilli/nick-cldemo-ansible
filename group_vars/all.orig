@@ -1,0 +1,254 @@
+# ebgp fabric
+fabric:
+    leaf01:
+        asn: 65011
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.1.0/24":
+    leaf02:
+        asn: 65012
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.2.0/24":
+    leaf03:
+        asn: 65013
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.3.0/24":
+    leaf04:
+        asn: 65014
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.4.0/24":
+    spine01:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+    spine02:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+    spine03:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+    spine04:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+# interfaces
+interfaces:
+    leaf01:
+        lo:
+            ipv4: "10.0.0.11"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            mtu: "1500"
+        swp50:
+            mtu: "1500"
+        swp51:
+            mtu: "1500"
+        swp52:
+            mtu: "1500"
+    leaf02:
+        lo:
+            ipv4: "10.0.0.12"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            mtu: "1500"
+        swp50:
+            mtu: "1500"
+        swp51:
+            mtu: "1500"
+        swp52:
+            mtu: "1500"
+    leaf03:
+        lo:
+            ipv4: "10.0.0.13"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            mtu: "1500"
+        swp50:
+            mtu: "1500"
+        swp51:
+            mtu: "1500"
+        swp52:
+            mtu: "1500"
+    leaf04:
+        lo:
+            ipv4: "10.0.0.14"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            mtu: "1500"
+        swp50:
+            mtu: "1500"
+        swp51:
+            mtu: "1500"
+        swp52:
+            mtu: "1500"
+    spine01:
+        lo:
+            ipv4: "10.0.0.21"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+        swp4:
+            mtu: "1500"
+    spine02:
+        lo:
+            ipv4: "10.0.0.22"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+        swp4:
+            mtu: "1500"
+    spine03:
+        lo:
+            ipv4: "10.0.0.23"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+        swp4:
+            mtu: "1500"
+    spine04:
+        lo:
+            ipv4: "10.0.0.24"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+        swp4:
+            mtu: "1500"
+    server01:
+        neighbors:
+            eth1:
+                ip: "172.16.1.101"
+                mask: "255.255.255.0"
+                gateway: "172.16.1.1"
+    server02:
+        neighbors:
+            eth2:
+                ip: "172.16.2.101"
+                mask: "255.255.255.0"
+                gateway: "172.16.2.1"
+
+# bridges
+bridges:
+    leaf01:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf02:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf03:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf04:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+
+# SVIs
+SVIs:
+    leaf01:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.1.1/24"
+    leaf02:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.2.1/24"
+    leaf03:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.3.1/24"
+    leaf04:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.4.1/24"

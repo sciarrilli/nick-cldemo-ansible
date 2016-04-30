@@ -1,0 +1,8 @@
+# Update apt cache
+- name: apt update cache
+  apt: update_cache=yes
+
+# Apt dist upgrade
+- name: apt dist upgrade
+  apt: upgrade=dist
+  notify: reboot cumulus

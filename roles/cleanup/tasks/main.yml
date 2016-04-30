@@ -1,0 +1,16 @@
+
+# erase quagga config
+- name: cleanup quagga
+  file: path=/etc/quagga/Quagga.conf state=absent
+
+# stop quagga
+- name: stop quagga
+  service: name=quagga state=stopped
+
+# default interfaces file
+- name: default /etc/network/interfaces
+  template: src=interfaces.j2 dest=/etc/network/interfaces
+  notify: reload networking
+
+- name: reload interfaces
+  shell: "ifreload -a"

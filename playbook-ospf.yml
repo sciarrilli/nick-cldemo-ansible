@@ -1,0 +1,17 @@
+---
+- hosts: leafs
+  user: cumulus
+  become: yes
+  become_method: sudo
+  roles:
+    - base
+    - interfaces_ospf
+    - ospf
+- hosts: spines
+  user: cumulus
+  become: yes
+  become_method: sudo
+  roles:
+    - base
+    - interfaces_ospf
+    - ospf
