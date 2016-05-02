@@ -241,45 +241,61 @@ interfaces:
         lo:
             ipv4: "10.0.0.21"
         swp1:
+            ipv4: "10.0.0.21"
             mtu: "1500"
         swp2:
+            ipv4: "10.0.0.21"
             mtu: "1500"
         swp3:
+            ipv4: "10.0.0.21"
             mtu: "1500"
         swp4:
+            ipv4: "10.0.0.21"
             mtu: "1500"
     spine02:
         lo:
             ipv4: "10.0.0.22"
         swp1:
+            ipv4: "10.0.0.22"
             mtu: "1500"
         swp2:
+            ipv4: "10.0.0.22"
             mtu: "1500"
         swp3:
+            ipv4: "10.0.0.22"
             mtu: "1500"
         swp4:
+            ipv4: "10.0.0.22"
             mtu: "1500"
     spine03:
         lo:
             ipv4: "10.0.0.23"
         swp1:
+            ipv4: "10.0.0.23"
             mtu: "1500"
         swp2:
+            ipv4: "10.0.0.23"
             mtu: "1500"
         swp3:
+            ipv4: "10.0.0.23"
             mtu: "1500"
         swp4:
+            ipv4: "10.0.0.23"
             mtu: "1500"
     spine04:
         lo:
             ipv4: "10.0.0.24"
         swp1:
+            ipv4: "10.0.0.24"
             mtu: "1500"
         swp2:
+            ipv4: "10.0.0.24"
             mtu: "1500"
         swp3:
+            ipv4: "10.0.0.24"
             mtu: "1500"
         swp4:
+            ipv4: "10.0.0.24"
             mtu: "1500"
     server01:
         neighbors:
