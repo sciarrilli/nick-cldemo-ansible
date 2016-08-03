@@ -1,0 +1,641 @@
+#
+#
+# ebgp fabric
+#
+#
+fabric:
+    leaf01:
+        asn: 65011
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.1.0/24":
+    leaf02:
+        asn: 65012
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.2.0/24":
+    leaf03:
+        asn: 65013
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.3.0/24":
+    leaf04:
+        asn: 65014
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.4.0/24":
+    leaf05:
+        asn: 65015
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.5.0/24":
+    leaf06:
+        asn: 65016
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.6.0/24":
+    leaf07:
+        asn: 65017
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.7.0/24":
+    leaf08:
+        asn: 65018
+        fabricports:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+        networks:
+            "172.16.8.0/24":
+    spine01:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+    spine02:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+    spine03:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+    spine04:
+        asn: 65020
+        fabricports:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+
+###########################
+#
+# ospf unnumbered routing
+#
+###########################
+ospf:
+    leaf01:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    leaf02:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    leaf03:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    leaf04:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    leaf05:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    leaf06:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    leaf07:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    leaf08:
+        routedports:
+            lo:
+            swp49:
+            swp50:
+            swp51:
+            swp52:
+            bridge.10:
+    spine01:
+        routedports:
+            lo:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+    spine02:
+        routedports:
+            lo:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+    spine03:
+        routedports:
+            lo:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+    spine04:
+        routedports:
+            lo:
+            swp1:
+            swp2:
+            swp3:
+            swp4:
+            swp5:
+            swp6:
+            swp7:
+            swp8:
+# interfaces
+interfaces:
+    leaf01:
+        lo:
+            ipv4: "10.0.0.11"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.11"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.11"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.11"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.11"
+            mtu: "1500"
+    leaf02:
+        lo:
+            ipv4: "10.0.0.12"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.12"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.12"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.12"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.12"
+            mtu: "1500"
+    leaf03:
+        lo:
+            ipv4: "10.0.0.13"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.13"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.13"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.13"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.13"
+            mtu: "1500"
+    leaf04:
+        lo:
+            ipv4: "10.0.0.14"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.14"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.14"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.14"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.14"
+            mtu: "1500"
+    leaf05:
+        lo:
+            ipv4: "10.0.0.15"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.15"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.15"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.15"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.15"
+            mtu: "1500"
+    leaf06:
+        lo:
+            ipv4: "10.0.0.16"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.16"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.16"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.16"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.16"
+            mtu: "1500"
+    leaf07:
+        lo:
+            ipv4: "10.0.0.17"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.17"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.17"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.17"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.17"
+            mtu: "1500"
+    leaf08:
+        lo:
+            ipv4: "10.0.0.18"
+        swp1:
+            mtu: "1500"
+        swp2:
+            mtu: "1500"
+        swp3:
+            mtu: "1500"
+            accessvlan: "10"
+        swp4:
+            mtu: "1500"
+            accessvlan: "10"
+        swp49:
+            ipv4: "10.0.0.18"
+            mtu: "1500"
+        swp50:
+            ipv4: "10.0.0.18"
+            mtu: "1500"
+        swp51:
+            ipv4: "10.0.0.18"
+            mtu: "1500"
+        swp52:
+            ipv4: "10.0.0.18"
+            mtu: "1500"
+    spine01:
+        lo:
+            ipv4: "10.0.0.21"
+        swp1:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+        swp2:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+        swp3:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+        swp4:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+        swp5:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+        swp6:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+        swp7:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+        swp8:
+            ipv4: "10.0.0.21"
+            mtu: "1500"
+    spine02:
+        lo:
+            ipv4: "10.0.0.22"
+        swp1:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+        swp2:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+        swp3:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+        swp4:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+        swp5:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+        swp6:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+        swp7:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+        swp8:
+            ipv4: "10.0.0.22"
+            mtu: "1500"
+    spine03:
+        lo:
+            ipv4: "10.0.0.23"
+        swp1:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+        swp2:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+        swp3:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+        swp4:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+        swp5:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+        swp6:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+        swp7:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+        swp8:
+            ipv4: "10.0.0.23"
+            mtu: "1500"
+    spine04:
+        lo:
+            ipv4: "10.0.0.24"
+        swp1:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+        swp2:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+        swp3:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+        swp4:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+        swp5:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+        swp6:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+        swp7:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+        swp9:
+            ipv4: "10.0.0.24"
+            mtu: "1500"
+#
+#
+# bridges
+#
+#
+bridges:
+    leaf01:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf02:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf03:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf04:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf05:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf06:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf07:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+    leaf08:
+        bridge:
+            name: "bridge"
+            members: ["swp1","swp2","swp3","swp4"]
+            vlanaware: "yes"
+            vids: ["1-10"]
+#
+#
+#
+# SVIs
+#
+#
+#
+SVIs:
+    leaf01:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.1.1/24"
+    leaf02:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.2.1/24"
+    leaf03:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.3.1/24"
+    leaf04:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.4.1/24"
+    leaf05:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.5.1/24"
+    leaf06:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.6.1/24"
+    leaf07:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.7.1/24"
+    leaf08:
+        v10:
+            name: "bridge.10"
+            ip: "172.16.8.1/24"
